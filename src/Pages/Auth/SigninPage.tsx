@@ -11,12 +11,17 @@ const Signinpage = () => {
             <HiUserGroup color="white" size={80} />
           </Top>
           <Up>
-            <Left to="/auth/signup">Register</Left>
-            <Left to="/auth/signin">Login</Left>
+            <Left to="/auth/signin">Register</Left>
           </Up>
           <Mid>
-            <Input placeholder="Enter Email" type="text" />
-            <Input placeholder="Enter Password" type="password" />
+          <Holder>
+              <Input placeholder="Enter Username" type="text" />
+              <Error>Invalid Username</Error>
+            </Holder>
+            <Holder>
+            <Input placeholder="Enter Your Password" type="text" />
+            <Error>Invalid Password</Error>
+            </Holder>
           </Mid>
         
           <Hold>
@@ -32,6 +37,19 @@ const Signinpage = () => {
 };
 
 export default Signinpage;
+const Holder = styled.div`
+  color: red;
+  font-size: 9px;
+  width: 100%;
+`;
+const Error = styled.div`
+  color: red;
+  font-size: 10px;
+  display: flex;
+  justify-content: flex-end;
+`;
+
+
 const Button = styled.button`
 border-radius: 5px;
 padding: 10px 20px;
@@ -51,11 +69,11 @@ text-decoration: none;
 `;
 
 const Hold = styled.div`
-  margin-top: 20px;
+  margin-top: 10px;
 `;
 
 const Input = styled.input`
-  width: 80%;
+  width: 95%;
   height: 35px;
   background-color: #e6e6e6;
   border-radius: 20px;
@@ -70,7 +88,7 @@ const Input = styled.input`
 `;
 
 const Mid = styled.div`
-  width: 100%;
+  width: 93%;
   display: flex;
   flex-direction: column;
   justify-content: center;

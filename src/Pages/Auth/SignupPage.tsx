@@ -11,23 +11,35 @@ const Signuppage = () => {
             <HiUserGroup color="white" size={80} />
           </Top>
           <Up>
-            <Left to="/auth/signup">Register</Left>
-            <Left to="/auth/signin">Login</Left>
+            <Left to="/auth/signup">Login</Left>
           </Up>
           <Mid>
-            <Input placeholder="Enter Username" type="text" />
+            <Holder>
+              <Input placeholder="Enter Username" type="text" />
+              <Error>Invalid Username</Error>
+            </Holder>
+            <Holder>
             <Input placeholder="Enter Name" type="text" />
+            <Error>Invalid name</Error>
+            </Holder>
+            <Holder>
             <Input placeholder="Enter Email" type="text" />
-            <Input placeholder="Enter Password" type="password" />
+            <Error>Invalid email address</Error>
+            </Holder>
+        <Holder>
+        <Input placeholder="Enter Password" type="password" />
+        <Error>Invalid Password</Error>
+        </Holder>
+            <Holder>
             <Input placeholder="Confirm Password" type="password" />
+            <Error>Password Not a match</Error>
+            </Holder>
           </Mid>
           <Check>
             <input type="checkbox" />
             By checking this box, you accept the terms and condition
           </Check>
-          <Hold>
-                <Button>Signin</Button>
-          </Hold>
+            <Button>Signin</Button>
           <All>
             Already have an account? <Nav to="/auth/signin">Signin</Nav>
           </All>
@@ -38,22 +50,36 @@ const Signuppage = () => {
 };
 
 export default Signuppage;
+
+const Holder = styled.div`
+  color: red;
+  font-size: 9px;
+  width: 100%;
+`;
+const Error = styled.div`
+  color: red;
+  font-size: 10px;
+  display: flex;
+  justify-content: flex-end;
+`;
+
 const Button = styled.button`
-border-radius: 5px;
-padding: 10px 20px;
-color: white;
-cursor: pointer;
-background-color: green;
-border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 4px;
+  color: white;
+  cursor: pointer;
+  background-color: green;
+  border: none;
 `;
 
 const All = styled.div`
-font-size: 14px;
-margin-top: 15px;
+  font-size: 14px;
+  margin-top: 4px;
 `;
 
 const Nav = styled(Link)`
-text-decoration: none;
+  text-decoration: none;
 `;
 
 const Check = styled.div`
@@ -68,12 +94,12 @@ const Hold = styled.div`
 `;
 
 const Input = styled.input`
-  width: 80%;
+  width: 95%;
   height: 35px;
   background-color: #e6e6e6;
   border-radius: 20px;
   border: none;
-  margin-top: 15px;
+  margin-top: 5px;
   outline: none;
   padding-left: 10px;
 
@@ -83,11 +109,12 @@ const Input = styled.input`
 `;
 
 const Mid = styled.div`
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* background-color: red; */
 `;
 
 const Left = styled(Link)`
@@ -127,8 +154,9 @@ const Main = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 330px;
-  height: 450px;
+  height: 470px;
   border-radius: 10px;
   background: white;
   -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=15, Direction=135, Color=#000000)"; /*IE 8*/
